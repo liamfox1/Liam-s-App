@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Liam's App</title>
+		<meta charset="ISO-8859-1">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+<!--		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> -->
+		<script src="js/jquery-1.8.2.min.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+
+		<style type="text/css">
+		#logo {
+			align: center;
+			margin: 10px;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		<div data-role="page" id="home">
+			<div data-role="header">
+				<h1>Liam's App</h1>
+			</div>
+			<!-- /header -->
+			<div data-role="content" id="logo">
+				<img alt="Accenture" src="Flags/accenture_logo.png">
+				<br>
+			</br>
+			<br>
+	
+				<ul data-role="listview" data-inset="true" data-filter="true">
+					<li><a href="#button">Button</a></li>
+					<li><a href="#mylocation">My Location</a></li>
+					<li><a href="#favwebsites">Favourite Websites</a></li>
+					
+				</ul>
+			</div>
+			
+			<!-- /content -->
+		</div>
+		<!-- /page -->
+		<div data-role="page" id="button">
+			<div data-role="header">
+				<h1>Button</h1>
+				<a href="#home" data-role="button" data-rel="back">Back</a>
+			</div>
+			<!-- /header -->
+			<div data-role="content" id="logo">
+				<img id="logo" alt="UK" src="Flags/Flag_UK.gif">
+			<!--	<p>Click on the button</p> -->
+<button onclick="myFunction()">Click Me</button>
+<!-- OPEN THE CAMERA CODE -->
+<script>
+
+static final int REQUEST_IMAGE_CAPTURE = 1;
+
+private void dispatchTakePictureIntent() {
+    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+    }
+}
+</script>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var person = prompt("Please enter your name", "");
+    
+    if (person != null) {
+        document.getElementById("demo").innerHTML =
+        "Hello " + person + "! How are you today?";
+    }
+}
+</script>
+			</div>
+			<!-- /content -->
+		</div>
+		<!-- /page -->
+		<div data-role="page" id="mylocation">
+			<div data-role="header">
+				<h1>My Location</h1>
+				<a href="#home" data-role="button" data-rel="back">Back</a>
+			</div>
+			<!-- /header -->
+			<div data-role="content" id="logo">
+				<img id="logo" alt="Latvia" src="Flags/Flag_Latvia.gif">
+				<script>
+		function getLocation() {
+			loc = document.getElementById("location");
+			map = document.getElementById("map");
+			
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition, showError);
+			} else {
+				loc.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+
+		function showPosition(position) {
+
+			map.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + 
+			position.coords.latitude + "," + position.coords.longitude +
+			"&zoom=15&size=600x300&maptype=roadmap&markers=" + 
+			position.coords.latitude + "," + position.coords.longitude +
+			"&sensor=false";
+		}
+		
+		function showError() {
+			loc.innerHTML = "Location is not available at this time.";
+		}
+	</script>
+<body>
+	<p>Click the button to get your coordinates:</p>
+	<button onclick="getLocation()">Find Me</button>
+	<p id="location"> </p>
+    <img id="map" border="0" src="">
+</body>
+			</div>
+			<!-- /content -->
+		</div>
+		<!-- /page -->
+		<div data-role="page" id="favwebsites">
+			<div data-role="header">
+				<h1>Favourite Websites</h1>
+				<a href="#home" data-role="button" data-rel="back">Back</a>
+			</div>
+			<!-- /header -->
+			<div data-role="content" id="logo">
+				<img alt="Accenture" src="Flags/accenture_logo.png">
+					<br>
+			</br>
+			<br>
+					<ul data-role="listview" data-inset="true" data-filter="true">
+					<li><a href="#website1">Website 1</a></li>
+					<li><a href="#website2">Website 2</a></li>
+					<li><a href="#website3">Website 3</a></li>
+			</div>
+			</div>
+			<!-- Website 1 -->
+			<div data-role="page" id="website1">
+			<div data-role="header">
+				<h1>Portsmouth News</h1>
+				<a href="#favwebsites" data-role="button" data-rel="back">Back</a>
+			</div>
+			<!-- /header -->
+			<div data-role="content" id="logo">
+				
+				<iframe src="http://www.portsmouth.co.uk" width="90%" height="100%"></iframe>
+			
+			</div>
+			<!-- Website 2 -->
+				<div data-role="page" id="website2">
+			<div data-role="header">
+				<h1>Website 2</h1>
+				<a href="#favwebsites" data-role="button" data-rel="back">Back</a>
+			</div>
+			<!-- /header -->
+			<div data-role="content" id="logo">
+				<img id="logo" alt="Latvia" src="Flags/Flag_Latvia.gif">
+				<p>Embeded Website</p>
+			</div>
+			</div>
+			<!-- Website 3 -->
+				<div data-role="page" id="website3">
+			<div data-role="header">
+				<h1>Website 3</h1>
+				<a href="#favwebsites" data-role="button" data-rel="back">Back</a>
+			</div>
+			<!-- /header -->
+			<div data-role="content" id="logo">
+				<img id="logo" alt="Latvia" src="Flags/Flag_Latvia.gif">
+				<p>Embeded Website</p>
+
+			</div>
+			
+			<!-- /content -->
+		
+	</body>
+</html>
